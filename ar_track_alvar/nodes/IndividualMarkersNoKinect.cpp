@@ -324,9 +324,9 @@ int main(int argc, char* argv[])
   tf_listener = new tf::TransformListener(n);
   tf_broadcaster = new tf::TransformBroadcaster();
   arMarkerPub_ =
-      n.advertise<ar_track_alvar_msgs::AlvarMarkers>("ar_pose_marker", 0);
+      n.advertise<ar_track_alvar_msgs::AlvarMarkers>(output_frame + "ar_pose_marker", 0);
   rvizMarkerPub_ =
-      n.advertise<visualization_msgs::Marker>("visualization_marker", 0);
+      n.advertise<visualization_msgs::Marker>(output_frame + "visualization_marker", 0);
 
   // Prepare dynamic reconfiguration
   dynamic_reconfigure::Server<ar_track_alvar::ParamsConfig> server;
